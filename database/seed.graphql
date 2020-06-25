@@ -1,0 +1,9 @@
+mutation{
+    first: createUniversity(
+        data:{
+            title:"heriot-watt university"
+        }
+    ){
+    id
+  }
+}

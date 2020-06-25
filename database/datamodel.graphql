@@ -1,0 +1,21 @@
+type Note {
+    id:ID! @unique
+    pdfUrl: String!
+    title: String!
+    author: User!
+    course: String!
+}
+
+type User {
+    id:ID! @unique
+    email: String!
+    notes: [Note!]!
+}
+
+type University {
+    id: ID! @unique
+    title: String!
+    imageUrl: String
+    notes: [Note!]!
+}
+

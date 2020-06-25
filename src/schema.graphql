@@ -1,0 +1,5 @@
+# import User, Note, University from "./generated/prisma.graphql"
+
+type Query {
+    UniversitySearch(search:String!):[University!]!
+}
