@@ -2,6 +2,7 @@
 
 type Query {
     UniversitySearch(search:String!):[University!]!
+    CurrentUser(id:ID): User!
 }
 
 type Mutation {

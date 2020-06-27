@@ -1,13 +1,16 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 function getUserId(context) {
   const Authorization = context.request.get("Authorization");
   if (Authorization) {
     const token = Authorization.replace("Bearer ", ""); // Authorization: Bearer asdasd
-    const { userId } = jwt.verify(token, "124asdlkjoif1231");
+    const { userId } = jwt.verify(token, process.env.JWT_SECRET);
     return userId;
   }
-  throw new Error("Not authenticated");
+  const error = new Error("Not authenticated");
+  error.code = 403;
+  throw error;
 }
 
 module.exports = {
