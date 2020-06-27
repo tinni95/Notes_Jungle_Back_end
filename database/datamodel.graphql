@@ -8,8 +8,11 @@ type Note {
 
 type User {
     id:ID! @unique
-    email: String!
+    email: String! @unique
+    displayName: String!
     notes: [Note!]!
+    password: String!
+    token: String @unique
 }
 
 type University {

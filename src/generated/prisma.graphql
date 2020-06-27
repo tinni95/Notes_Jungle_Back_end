@@ -489,7 +489,10 @@ input UniversityWhereUniqueInput {
 type User {
   id: ID!
   email: String!
+  displayName: String!
   notes(where: NoteWhereInput, orderBy: NoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Note!]
+  password: String!
+  token: String
 }
 
 type UserConnection {
@@ -500,7 +503,10 @@ type UserConnection {
 
 input UserCreateInput {
   email: String!
+  displayName: String!
   notes: NoteCreateManyWithoutAuthorInput
+  password: String!
+  token: String
 }
 
 input UserCreateOneWithoutNotesInput {
@@ -510,6 +516,9 @@ input UserCreateOneWithoutNotesInput {
 
 input UserCreateWithoutNotesInput {
   email: String!
+  displayName: String!
+  password: String!
+  token: String
 }
 
 type UserEdge {
@@ -522,11 +531,20 @@ enum UserOrderByInput {
   id_DESC
   email_ASC
   email_DESC
+  displayName_ASC
+  displayName_DESC
+  password_ASC
+  password_DESC
+  token_ASC
+  token_DESC
 }
 
 type UserPreviousValues {
   id: ID!
   email: String!
+  displayName: String!
+  password: String!
+  token: String
 }
 
 type UserSubscriptionPayload {
@@ -549,11 +567,17 @@ input UserSubscriptionWhereInput {
 
 input UserUpdateInput {
   email: String
+  displayName: String
   notes: NoteUpdateManyWithoutAuthorInput
+  password: String
+  token: String
 }
 
 input UserUpdateManyMutationInput {
   email: String
+  displayName: String
+  password: String
+  token: String
 }
 
 input UserUpdateOneRequiredWithoutNotesInput {
@@ -565,6 +589,9 @@ input UserUpdateOneRequiredWithoutNotesInput {
 
 input UserUpdateWithoutNotesDataInput {
   email: String
+  displayName: String
+  password: String
+  token: String
 }
 
 input UserUpsertWithoutNotesInput {
@@ -601,9 +628,51 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
+  displayName: String
+  displayName_not: String
+  displayName_in: [String!]
+  displayName_not_in: [String!]
+  displayName_lt: String
+  displayName_lte: String
+  displayName_gt: String
+  displayName_gte: String
+  displayName_contains: String
+  displayName_not_contains: String
+  displayName_starts_with: String
+  displayName_not_starts_with: String
+  displayName_ends_with: String
+  displayName_not_ends_with: String
   notes_every: NoteWhereInput
   notes_some: NoteWhereInput
   notes_none: NoteWhereInput
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  token: String
+  token_not: String
+  token_in: [String!]
+  token_not_in: [String!]
+  token_lt: String
+  token_lte: String
+  token_gt: String
+  token_gte: String
+  token_contains: String
+  token_not_contains: String
+  token_starts_with: String
+  token_not_starts_with: String
+  token_ends_with: String
+  token_not_ends_with: String
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
@@ -611,4 +680,6 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  email: String
+  token: String
 }

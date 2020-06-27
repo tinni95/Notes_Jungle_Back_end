@@ -3,3 +3,25 @@
 type Query {
     UniversitySearch(search:String!):[University!]!
 }
+
+type Mutation {
+    SignIn(email: String!, password: String!): AuthPayload
+    SignUp(
+    email: String!
+    password: String!
+    displayName: String!
+  ): AuthPayload
+}
+
+type AuthPayload {
+    token: String!
+    user: User
+}
+
+type User {
+    id:ID! 
+    email: String!
+    displayName: String!
+    notes: [Note!]!
+    token: String
+}
